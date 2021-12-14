@@ -16,4 +16,9 @@ const mysql = require('mysql2/promise');
     'SELECT `students`.`id`, `students`.`firstName`, `students`.`lastName`,`students`.`courseName` FROM `students` WHERE `age` > 18'
   );
   console.log(results2);
+
+  const [results3] = await pool.execute(
+    'DELETE FROM `students` WHERE `age` < 18'
+  );
+  console.log(results3);
 })();
